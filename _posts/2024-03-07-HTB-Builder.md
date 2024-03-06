@@ -1,12 +1,10 @@
 ---
 layout: post
+author: acaard
 title: HTB-Builder
-date: 2024-03-07 10:03
-categories: [ctf,linux,medium]
-tags: [htb,linux,ctf,medium] 
+excerpt_separator: <!-- more -->    
 published: true
 ---
-
 # Builder machine on [hackthebox](https://app.hackthebox.com)
 
 Written by: Mustafa Musallati.
