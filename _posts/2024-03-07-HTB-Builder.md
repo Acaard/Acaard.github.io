@@ -1,8 +1,8 @@
 ---
 title: Builder - HTB Writeup
 date: 2024-03-07 10:03
-categories: [ctf, linux, medium]
-tags: [htb, linux, ctf, medium ] 
+categories: [ctf,linux,medium]
+tags: [htb,linux,ctf,medium] 
 ---
 
 # Builder machine on [hackthebox](https://app.hackthebox.com)
