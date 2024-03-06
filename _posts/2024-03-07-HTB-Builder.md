@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Builder - HTB Writeup
 date: 2024-03-07 10:03
 categories: [ctf,linux,medium]
