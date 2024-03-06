@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Builder - HTB Writeup
+title: HTB-Builder
 date: 2024-03-07 10:03
 categories: [ctf,linux,medium]
 tags: [htb,linux,ctf,medium] 
