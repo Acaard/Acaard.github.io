@@ -115,7 +115,9 @@ If we read the script we will see that it takes a MD file and validate if it's a
 
 After trying and generating different tickets we finally manage to create a final ticket to grant us root shell (via spawning a bash shell in eval function).
 
-final ticket: ![](../assets/images/bountyhunter/20231012223103.png)
+final ticket: 
+
+![](../assets/images/bountyhunter/20231012223103.png)
 
 Now we perform the script as sudo and give it our ticket file path:
 
