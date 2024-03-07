@@ -5,7 +5,6 @@ published: true
 ---
 # Builder machine on [hackthebox](https://app.hackthebox.com)
 
-Written by: Mustafa Musallati.
 
 ---
 
