@@ -6,7 +6,7 @@ published: true
 # Clicker machine on [hackthebox](https://app.hackthebox.com)
 
 
-### Enumeration:
+## Enumeration:
 
 
 nmap scan result: 
@@ -86,7 +86,8 @@ After copying it and extracting it we have a lot of php codes for the website an
 ![](../assets/images/clicker/20230926163148.png)
 
 
-### Exploitation
+## Exploitation
+
 
 After analyzing some files we find smth interesting in the "save_game.php" file....
 

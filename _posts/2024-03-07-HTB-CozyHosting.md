@@ -6,7 +6,7 @@ published: true
 # CozyHosting machine on [hackthebox](https://app.hackthebox.com/)
 
 
-### Enumeration:
+## Enumeration:
 
 
 Nmap command: 
@@ -121,7 +121,8 @@ tip: use curl and pipe it to a tool called "jq" to make it easier to read like t
 
 
 
-### Exploitation
+## Exploitation
+
 
 We have here 2 interesting endpoints:
 1) sessions, well for sessions.

@@ -6,7 +6,7 @@ published: true
 # Builder machine on [hackthebox](https://app.hackthebox.com)
 
 
-### Enumeration:
+## Enumeration:
 
 
 Let's start by enumeration the machine with nmap.
@@ -39,7 +39,8 @@ java -jar "jar file"
 ```
 After messing with it a bit and understanding how to get the available commands, we see we can do "connect-node", and as stated in the vulnerability description, the "@" sign, if followed by file name, will substitute the actual content of the file.
 
-### Exploitation
+## Exploitation
+
 
 So for example let's try to put "/etc/passwd", using this command:
 ```
