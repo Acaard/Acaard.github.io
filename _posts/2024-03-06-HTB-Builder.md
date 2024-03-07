@@ -6,9 +6,8 @@ published: true
 # Builder machine on [hackthebox](https://app.hackthebox.com)
 
 
----
-
 ### Enumeration:
+
 
 Let's start by enumeration the machine with nmap.
 Nmap scan result:
@@ -82,5 +81,6 @@ Now After doing that, we will get the root private key, let's save it and login.
 ![](../assets/images/Builder/20240214222709.png)
 
 And the box is done!
+Thanks for reading!
 
 Happy hacking :)
