@@ -27,19 +27,6 @@ PORT   STATE SERVICE VERSION
 |_http-server-header: nginx/1.18.0 (Ubuntu)
 |_http-trane-info: Problem with XML parsing of /evox/about
 No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
-TCP/IP fingerprint:
-OS:SCAN(V=7.94%E=4%D=9/11%OT=22%CT=1%CU=33297%PV=Y%DS=2%DC=I%G=Y%TM=64FEBC0
-OS:C%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=107%TI=Z%CI=Z%II=I%TS=A)SEQ
-OS:(SP=105%GCD=1%ISR=109%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=105%GCD=2%ISR=109%TI=Z%
-OS:CI=Z%TS=A)OPS(O1=M53CST11NW7%O2=M53CST11NW7%O3=M53CNNT11NW7%O4=M53CST11N
-OS:W7%O5=M53CST11NW7%O6=M53CST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE8
-OS:8%W6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M53CNNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40
-OS:%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=
-OS:%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%
-OS:W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=
-OS:)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%
-OS:DFI=N%T=40%CD=S)
-
 Network Distance: 2 hops
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
@@ -192,7 +179,7 @@ We saved the info of the file in a file called "userkey", let's now export the p
 
 ![](../assets/images/keeper/20230911114441.png)
 
-```
+```bash
 puttygen userkey -O private-openssh -o finalkey
 
 userkey: the name of the file that was generated and we copied it.
@@ -206,7 +193,7 @@ So now we have a private key file which we can use ssh to connect to the server.
 
 ![](../assets/images/keeper/20230911114703.png)
 
-```
+```bash
 ssh -i finalkey root@10.10.11.227
 
 -i: is used to specify the key file that we want to connect with.

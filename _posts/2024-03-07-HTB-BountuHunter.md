@@ -50,7 +50,7 @@ When we try to to inspect the POST request (in log_submit.php) we see that the d
 Base64 and url encoded, so let's decode it real quick to see how it is sent....
 
 
-```
+```xml
 <?xml  version="1.0" encoding="ISO-8859-1"?>
 		<bugreport>
 		<title>test</title>

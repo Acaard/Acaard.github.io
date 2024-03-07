@@ -70,14 +70,14 @@ NOTE: it's important to change the "user@host" at the end of public key file.
 after that we will copy our public key and put it in the target user directory at .ssh/authorized_keys file.
 
 On our target machine:
-```
+```bash
 echo "the public key text" >> .ssh/authorized_kyes
 ```
 
 
 Then we will do this on our machine:
 
-```
+```bash
 ssh -i key svc@10.10.11.208
 ```
 
@@ -111,7 +111,7 @@ Also we can inspect certain containers, but when we do so we see that we need a 
 
 So we will do the following:
 
-```
+```bash
 sudo /usr/bin/python3 /opt/scripts/system-checkup.py docker-inspect '{{json .Config}}' 9608
 ```
 
@@ -139,7 +139,7 @@ So we do the following:
 
 Making a script file and putting a reverse shell in it, then now let's execute the full-chekup as sudo:
 
-```
+```bash
 sudo /usr/bin/python3 /opt/scripts/system-checkup.py full-checkup
 ```
 
