@@ -84,9 +84,3 @@ Now After doing that, we will get the root private key, let's save it and login.
 And the box is done!
 
 Happy hacking :)
-
----
-
-Written by: Mustafa Musallati.
-[LinkedIn](https://www.linkedin.com/in/mustafa-musallati-95a159260/)
-[instagram](https://www.instagram.com/accaard/)
