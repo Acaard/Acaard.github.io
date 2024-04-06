@@ -3,7 +3,7 @@ layout: post
 title: HTB-Cozyhosting
 published: true
 ---
-# CozyHosting machine on [hackthebox](https://app.hackthebox.com/)
+# CozyHosting machine on [Hackthebox](https://app.hackthebox.com/)
 
 
 ## Enumeration:
