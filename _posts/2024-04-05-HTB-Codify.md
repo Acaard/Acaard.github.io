@@ -3,14 +3,13 @@ layout: post
 title: HTB-Codify
 published: true
 ---
-
 # Codify machine on [hackthebox](https://app.hackthebox.com)
 
 
 ### Enumeration
 
 Let's start with nmap scan:
-```bash
+```
 Not shown: 997 closed tcp ports (conn-refused)
 PORT     STATE SERVICE VERSION
 22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 (Ubuntu Linux; protocol 2.0)
