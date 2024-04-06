@@ -10,7 +10,7 @@ published: true
 ### Enumeration
 
 Let's start with nmap scan:
-```nmap
+```bash
 Not shown: 997 closed tcp ports (conn-refused)
 PORT     STATE SERVICE VERSION
 22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 (Ubuntu Linux; protocol 2.0)
@@ -127,7 +127,7 @@ After running the script, and running pspy too, we wait a bit and see the follow
 <SNIP> 
 2024/04/06 18:47:00 CMD: UID=0     PID=21846  | /bin/bash /opt/scripts/mysql-backup.sh 
 2024/04/06 18:47:00 CMD: UID=0     PID=21848  | /bin/bash /opt/scripts/mysql-backup.sh 
-2024/04/06 18:47:00 CMD: UID=0     PID=21847  | /usr/bin/mysqldump --force -u root -h 0.0.0.0 -P 3306 -pkljhREDACTED2kjh3 mysql 
+2024/04/06 18:47:00 CMD: UID=0     PID=21847  | /usr/bin/mysqldump --force -u root -h 0.0.0.0 -P 3306 -pkljh<REDACTED>2kjh3 mysql 
 2024/04/06 18:47:01 CMD: UID=0     PID=21849  | 
 <SNIP>
 ```
